@@ -23,14 +23,14 @@ const db = mysql.createConnection({
 
 db.connect((err) => {
   if (err) {
-    console.error('Error connecting to the database:', + err.stack);
+    console.error('Error connecting to the database: ' + err.stack);
     return;
   }
     console.log('Conection successful!');    
 });
 
 app.get('/api/mahasiswa', (req, res) => {
-  db.query = ('SELECT * from biodata', (err, results) => {
+  db.query('SELECT * FROM biodata', (err, results) => {
     if (err) {
         console.error('Error executing query:', err.stack);
         res.status(500).send('Error executing query');
